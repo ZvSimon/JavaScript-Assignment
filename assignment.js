@@ -26,8 +26,21 @@ const sayHello2=(sentence,name)=>{
 const sayHello3=(sentence = "Hi",name)=>{
     console.log(sentence + name);
 }
+const checkInput=(cb,...strings)=>{
+    let hasEmptyText=false;
+    for(const text of strings){
+        if(!text){
+            hasEmptyText=true;
+            break;
+        }
+    }
+    if(!hasEmptyText){
+        cb();
+    }
 
+}
 sayHello("Simon");
 sayHello1();
 sayHello2("Hi ","Simon");
-sayHello("Elie");
+sayHello3("Elie");
+checkInput(()=>{console.log("All not empty")},"Hello","12","Simon");
